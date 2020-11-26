@@ -7,12 +7,12 @@ class Rope{
           bodyB: body2,
           pointB : {x:this.offsetX,y:this.offsetY}
       }
-    this.rope=Constraint.create(options)
-      //World.add(myWorld,this.rope);
+    this.body=Constraint.create(options)
+    World.add(myWorld,this.body);
     }
 
     display(){
        
-       // line(this.rope.bodyA.position.x ,this.rope.bodyA.position.y, this.rope.bodyB.position.x, this.rope.bodyB.position.y)
+       line(this.body.bodyA.position.x ,this.body.bodyA.position.y, this.body.bodyB.position.x + this.offsetX, this.body.bodyB.position.y+this.offsetY)
     } 
 }

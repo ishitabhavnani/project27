@@ -15,7 +15,7 @@ function preload()
 }
 
 function setup() {
-	createCanvas(800, 700);
+	createCanvas(1000, 700);
 
 
 	myEngine = Engine.create();
@@ -23,16 +23,19 @@ function setup() {
 
 	//Create the Bodies Here.
 	
-	bob1=new Bob(250,500,60);
-	bob2=new Bob(310,500,60);
-	bob3=new Bob(370,500,60);
-	bob4=new Bob(430,500,60);
-	bob5=new Bob(490,500,60);
+	bob1=new Bob(300,300,50);
+	bob2=new Bob(350,300,50);
+	bob3=new Bob(400,300,50);
+	bob4=new Bob(450,300,50);
+	bob5=new Bob(500,300,50);
 
-	roof=new Roof(375,100,400,50)
+	roof=new Roof(400,100,300,50)
 	
-	rope1= new Rope(bob1.body,roof.body,20,100);
-  
+	rope1= new Rope(bob1.body,roof.body,-100,0);
+  rope2= new Rope(bob2.body,roof.body,-50,0);
+  rope3= new Rope(bob3.body,roof.body,0,0);
+  rope4= new Rope(bob4.body,roof.body,50,0);
+  rope5= new Rope(bob5.body,roof.body,100,0);
 }
 
 
@@ -50,9 +53,18 @@ function draw() {
   roof.displayGround();
   
   rope1.display();
+  rope2.display();
+  rope3.display();
+  rope4.display();
+  rope5.display();
+
   drawSprites();
  
 }
 
-
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+    Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-150,y:150});
+  }
+}
 
