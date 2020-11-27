@@ -3,9 +3,9 @@ class Bob{
     constructor(x, y, r){
         var paper_options={
             isStatic: false,
-           restitution: 0.5,
-           friction:0.5,
-           density:1.2
+           restitution: 1,
+           friction:0,
+           density:0.7
         }
         //define all the Box properties here
         this.x=x
